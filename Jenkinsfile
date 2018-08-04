@@ -2,11 +2,10 @@ pipeline {
     agent any
 
     stages {
-        tools {
-                   jdk "JDK8"
-                }
         stage ('Compile Stage') {
-
+            tools {
+                jdk "JDK8"
+            }
             steps {
                 withMaven(maven : 'maven') {
                     sh 'mvn clean compile'
@@ -15,7 +14,9 @@ pipeline {
         }
 
         stage ('Testing Stage') {
-
+            tools {
+                jdk "JDK8"
+            }
             steps {
                 withMaven(maven : 'maven') {
                     sh 'mvn test'
