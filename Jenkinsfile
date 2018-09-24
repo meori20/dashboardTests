@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh '''
                     curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
+                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
                 '''
             }
         }
