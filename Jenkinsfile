@@ -21,7 +21,7 @@ pipeline {
                 sh '''
                     curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
                     unzip awscli-bundle.zip
-                    apt-get install -y awscli
+                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
                 '''
             }
         }
