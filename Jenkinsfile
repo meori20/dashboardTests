@@ -12,6 +12,15 @@ pipeline {
                 }
             }
         }
+        
+        stage ('AWS Stage') {
+            tools {
+                jdk "JDK8"
+            }
+            steps {
+                sh test
+            }
+        }
 
         stage ('Testing Stage') {
             tools {
