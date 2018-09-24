@@ -15,7 +15,6 @@ pipeline {
         
         stage ('AWS Stage') {
             tools {
-                //fleg
                 jdk "JDK8"
             }
             steps {
