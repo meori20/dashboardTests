@@ -19,8 +19,8 @@ pipeline {
             }
             steps {
                 sh '''
-                    sudo apt-get update
-                    sudo apt-get install -y awscli
+                    apt-get update
+                    apt-get install -y awscli
                 '''
             }
         }
