@@ -19,7 +19,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "Multiline shell steps works too"
                     sudo apt-get update
                     sudo apt-get install -y awscli
                 '''
