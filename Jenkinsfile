@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
+        stage ('BUILD') {
             tools {
                 jdk "JDK8"
             }
@@ -13,40 +13,28 @@ pipeline {
             }
         }
         
-        stage ('AWS Stage') {
-            tools {
-                jdk "JDK8"
-            }
-            steps {
-                sh '''
-                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
-                '''
-            }
-        }
-        
-        stage ('JFROG Stage') {
-            tools {
-                jdk "JDK8"
-            }
-            steps {
-                sh '''
-                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
-                '''
-            }
-        }
-
         stage ('Testing Stage') {
             tools {
-                jdk "JDK8"
+                jdk "JDK8" //
             }
             steps {
-                withMaven(maven : 'maven') {
-                    sh 'mvn test'
-                }
+                sh '''
+                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
+                '''
             }
         }
         
-        stage ('Run Real Device Tests') {
+        stage ('Run Automation Tests') {
+            tools {
+                jdk "JDK8"
+            }
+            steps {
+                sh '''
+                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test10Mb.db
+                '''
+            }
+        }
+        stage ('Check Build architecture') {
             tools {
                 jdk "JDK8"
             }
@@ -57,13 +45,13 @@ pipeline {
             }
         }
        
-        stage ('Upload Files Stage') {
+        stage ('Deliver Stage') {
             tools {
                 jdk "JDK8"
             }
             steps {
                 sh '''
-                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test100Mb.db
+                    curl -o output.file http://speedtest.ftp.otenet.gr/files/test10Mb.db
                 '''
             }
         }
